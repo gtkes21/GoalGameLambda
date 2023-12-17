@@ -2,23 +2,26 @@
 
 using namespace std;
 
-/*Initializing sizes of Field and adding bombs*/
+/*Initializing sizes of Field, adding bombs, also initializing Odd's vector*/
 void fieldInit(vector<vector<bool> > &field, vector<double> &odds ,string fieldSize){
     if(fieldSize == "Small"){
         field = vector<vector<bool> >(3,vector<bool>(4,false));
+        odds = {1.45, 2.48, 3.27, 4.91};
     }else if(fieldSize == "Medium"){
         field = vector<vector<bool> >(4,vector<bool>(7,false));
+        odds = {1.29, 1.72, 2.29, 3.06, 4.08, 5.45, 7.26};
     }else if(fieldSize == "Big"){
         field = vector<vector<bool> >(5,vector<bool>(10,false));
+        odds = {1.21, 1.51, 1.89, 2.36, 2.96, 3.7, 4.62, 5.78, 7.22, 9.03};
     }
-    odds = vector<double>(field[0].size(),1);
+
     for(int i = 0 ; i < field[0].size(); i++){
-        odds[i] = 1.0/(pow((1.0-(1.0/field.size())),i+1) * 1.0345);
         field[rand()%field.size()][i] = true;
     }
 
 }
 
+/*Displaying Field, 1 = Bomb, 0 = no Bomb*/
 void DisplayField(vector<vector<bool> > &field, vector<double> &odds){
     cout << "Displaying Field:\n\n";
     for (int i = 0; i < field.size(); i++){
@@ -51,11 +54,11 @@ void oneSimulation(double &currBalance, vector<vector<bool> > &field, vector<dou
         /*cashout*/
         if(currPos == -1){
             break;
-        }else if(field[currPos][i]){
+        }else if(field[currPos][i]){ /*There is Bomb*/
             currCashOut = 0;
             break;
         }else{
-            currCashOut = currBet * odds[i]; 
+            currCashOut = currBet * odds[i]; /*Ther is no Bomb*/
         }
     }
     if(currCashOut != 0)
@@ -77,7 +80,7 @@ int main(){
         cin >> fieldSize;
         cout << endl;
         fieldInit(field,odds,fieldSize);
-        printf("field sizes: %d x %d\n",field.size(),field[0].size());
+        printf("field sizes: %d x %d\n",(int)field.size(),(int)field[0].size());
         DisplayField(field,odds);
         oneSimulation(currBalance,field,odds);
     }
