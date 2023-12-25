@@ -1,0 +1,464 @@
+:root{
+    --header-height: 40px;
+    --inner-body-height: 500px;
+    --main-width:960px;
+    --field-height: 300px;
+    --odd-box-height: 19px;
+    --small-field-rows:3;
+    --small-field-cols:4;
+    --param-box-width: 350px;
+    --field-width: calc(var(--main-width) - var(--param-box-width));
+    --field-box-size: calc((var(--field-height) - var(--odd-box-height) - ( 3 * 4px ) )  / var(--small-field-rows));
+}   
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+.ball{
+    width: 50px;
+    height: 50px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.game-board{
+    width: var(--main-width);
+    height: calc(var(--inner-body-height) + var(--header-height));
+    background-color: green;
+    background: linear-gradient(rgb(0, 70, 0),rgb(0,200,0));
+    border-radius: 10px;
+    /* padding: 0 12px; */
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(211, 211, 211, 0.3);
+    padding: 0 12px;
+}
+
+.header-elem{
+    height: var(--header-height);
+}
+
+.first{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.second{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.third{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 2px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor:default ;
+}
+
+.license{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    padding: 4px;
+    background-color: #698562;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:0.3s;
+}
+
+.license:hover{
+    background-color: hsl(12, 15%, 40%);
+}
+
+
+.credit{
+    color:white;
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor:default;
+}
+
+.balance{
+    display: flex;
+    cursor: default;
+}
+.balance-number{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 700;
+}
+.currency{
+    color: rgb(129, 187, 41);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-elem>img{
+    height: 61%;
+    cursor: pointer;
+}
+
+.third>img:hover{
+    filter: grayscale(50%);
+}
+
+
+.third>p{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.third>p:hover{
+    color: hsl(12, 15%, 70%);
+}
+
+
+.body-container{
+    padding: 0 12px;
+    height: var(--inner-body-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-body{
+    height: var(--field-height);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.param-container{
+    width: var(--param-box-width);
+    padding: 0 20px 0 0;
+}
+
+.param-box{
+    height: 254px;
+    /* background-color: rgb(0,0,0,0.3); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auto-manual{
+    width: 178px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #244418;
+}
+
+.auto-manual>p{
+    font-size: 14px;
+    cursor: default;
+}
+
+.auto-manual>button>div{
+    transition: 0.05s;
+}
+
+.auto-manual>button>div:hover{
+    background-color: hsl(12, 15%, 50%);
+}
+
+.auto-manual>*{
+    color: white;
+    background: none;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: calc(178px / 2);
+}
+
+.auto-manual>button>div{
+    padding: 7px calc(178px / 6 - 1px);
+    background-color: #376819;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.betAmount{
+    width: 100%;
+    height: 80px;
+    border-radius: 6px;
+    background-color: #244418;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.betAmount>.left{
+    width: 149px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 3px;
+    align-items: center;
+    /* padding: 5px; */
+}
+
+.betAmount>.left>.bet-title{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+}
+
+.betAmount>.left>.bet-amount{
+    height: 38px;
+    width: 125px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #182D0A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bet-change{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 0;
+    color: white;
+    border: 1px solid white;
+    border-radius: 999px;
+    font-size: 13.33px;
+    transition: 0.3s;
+}
+.bet-change:hover{
+    color: hsl(12, 15%, 70%);
+    border: 1px solid hsl(12, 15%, 70%);
+}
+
+.bet-change:first-child{
+    padding: 0 0 3px 1px;
+}
+.bet-change:nth-child(3){
+    padding: 1px 0px 0px 1px;
+}
+
+.amount{
+    padding: 0 0 2px 0;
+    color: white;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+.betAmount>.right{
+    height: 51px;
+    width: 149px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+}
+
+.default-bets{
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    cursor: default;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.default-bets:hover{
+    background-color: hsl(12, 15%, 40%);
+}
+
+.size-change{
+    background-color: #244418;
+    width: 100%;
+    height: 65px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    align-items: center;
+    padding: 5px 10px 8px;
+}
+.size-change>p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+.size-change>div{
+    height: 30px;
+    display: flex;
+    gap: 2px;
+}
+.size-change>div>*{
+    line-height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    width: 102px;
+    height: 30px;
+    border: 1px solid #63804D; 
+    border-radius: 5px;
+    color: rgb(255, 255, 255, 0.95);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+button.active1{
+    background-color:#63804D;
+}
+
+.size-change>div>*:hover{
+    background-color: #63804E;
+}
+
+.bet-button{
+   height: 45px;
+   width: 100%; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-image: linear-gradient(to right, #97d913, #6fc10a, #97d913, #6fc10a);
+   box-shadow: 0 2px 0 0 #2e4c03;
+   color: #223c06;
+   border-radius: 5px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: 600;
+   font-size: 14px;
+   cursor: pointer;
+}
+
+
+.field{
+    height: 100%;
+    width: 500px;
+    display: flex;
+    justify-content: left;
+    gap: 4px;
+}
+
+.field-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.field-box-small{
+    width: 120px;
+    height: 88px;
+    border-radius: 4px;
+    box-shadow: 2px 2px rgb(70, 70, 70, 0.7);
+    background-color: rgb(300, 300, 300, 0.4);
+}
+
+.activeCol{
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.activeOdd>div{
+    color: black;
+    background-color: #FFFFFF;
+}
+
+
+.odd-box{
+    height: var(--odd-box-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.odd-box>div{
+    font-weight: bold;
+    color: white;
+    padding: 0 6px;
+    font-size: 12px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(75, 75, 75,0.9);
+}
+
+.show{
+    visibility: visible;
+}
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.field-box-medium{
+    width: 67px;
+    height: 65px;
+    border-radius: 4px;
+    box-shadow: 2px 2px rgb(70, 70, 70, 0.7);
+    background-color: rgb(300, 300, 300, 0.4);
+}
+
+.field-col:first-child>.field-box-medium{
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.field-box-big{
+    width: 45px;
+    height: 51px;
+    border-radius: 4px;
+    box-shadow: 2px 2px rgb(70, 70, 70, 0.7);
+    background-color: rgb(300, 300, 300, 0.4);
+}
+
+.field-col:first-child>.field-box-big{
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+

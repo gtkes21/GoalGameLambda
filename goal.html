@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOAL GAME</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="goal.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-board">
+            <div class="header">
+                <div class="header-elem first">
+                    <div class="logo">
+                        <img src="https://turbo-next.spribegaming.com/icon-goal_white.f9e57d9b791fcc1fc966.svg" alt="">
+                        <h4>GOAL</h4>
+                    </div>
+                    <div class="license">
+                        <img src="https://goal-game.netlify.app/assets/shield-check.svg" alt="">
+                        <p>Provably Fair</p>
+                    </div>
+                </div>
+                <div class="header-elem second">
+                    <p class="credit">Credit:</p>
+                    <div class="balance">
+                        <p class="balance-number">9999.00</p>
+                        <b class="currency">$</b>
+                    </div>
+                </div>
+                <div class="header-elem third">
+                    <p>How to play?</p>
+                    <img src="https://goal-game.netlify.app/assets/list.svg" alt="">
+                </div>
+            </div>
+            <div class="body-container">
+                <div class="main-body">
+                    <div class="param-container">
+                        <div class="param-box">
+                            <div class="auto-manual">
+                                <p>Manual</p>
+                                <button><div>Auto</div></button>
+                            </div>
+                            <div class="betAmount">
+                                <div class="left">
+                                    <div class="bet-title">Bet amount $</div>
+                                    <div class="bet-amount">
+                                        <div class="bet-change">-</div>
+                                        <input type="number" class="amount" value=2.00></input>
+                                        <div class="bet-change">+</div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="default-bets">1$</div>
+                                    <div class="default-bets">3$</div>
+                                    <div class="default-bets">5$</div>
+                                    <div class="default-bets">10$</div>
+                                </div>
+                            </div>
+                            <div class="size-change">
+                                <p>Field Size</p>
+                                <div>
+                                    <button class = "sizeBut" id="">Small</button>
+                                    <button class = "sizeBut" id="activeSize">Medium</button>
+                                    <button class = "sizeBut" id ="">Big</button>
+                                </div>
+                            </div>
+                            <div class="bet-button">
+                                BET
+                            </div>
+                        </div>
+                    </div>
+                    <img class="ball hidden" src="https://turbo-next.spribegaming.com/ball.7400b4088128521bcd5f.svg" alt="">
+                    <div class="field hidden" id="small">
+                        <div class="field-col">
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="odd-box-small"><div>x1.45</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="odd-box-small" ><div>x2.18</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="odd-box-small"><div>x3.27</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="flex-center field-box-small"></div>
+                            <div class="odd-box-small"><div>x4.91</div></div>
+                        </div>
+                    </div>
+                    <div class="field show" id="medium">
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x1.29</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x1.72</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x2.29</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x3.06</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x4.08</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x5.45</div></div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="flex-center field-box-medium"></div>
+                            <div class="odd-box-medium"><div>x7.26</div></div>
+                        </div>
+                    </div>
+                    <div class="field hidden" id="big">
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x1.21</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x1.51</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x1.89</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x2.36</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x2.96</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x3.7</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x4.62</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x5.78</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x7.22</div>
+                            </div>
+                        </div>
+                        <div class="field-col">
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="flex-center field-box-big"></div>
+                            <div class="odd-box-big">
+                                <div>x9.03</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="goal.js"></script>
+</body>
+</html>
